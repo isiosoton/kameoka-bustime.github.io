@@ -27,3 +27,15 @@ function timeread() {
   console.log(`${hour}:${minute}:${second}`);
   return now;
 }
+
+async function request_dog() {
+  // API回りの処理
+  // const API_Key = process.env.ODPT_ACCESS_TOKEN;
+  // const API_Key = read_env();
+  // console.log(API_Key);
+
+  // バス停情報
+  const res = await fetch(`https://dog.ceo/api/breeds/image/random`);
+  const dog_data = await res.json();
+  return dog_data;
+}
