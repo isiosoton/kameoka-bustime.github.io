@@ -1,4 +1,19 @@
-const soudai_busspot_list = ["創価大東京富士美術館（正門）", "創価大学栄光門"];
+// バス停情報とバス情報を呼び出す関数
+async function call_bus_data() {
+  const buspole_data = read_buspole();
+  const bustime_data = read_bustime();
+  search_bustime(await buspole_data, await bustime_data);
+  return await bustime_data;
+}
+
+// バス情報を絞り込む関数
+function search_bustime(buspole_data, bustime_data) {
+  bustime_data.forEach((bustimes, bus_index) => {
+    bustimes["odpt:busTimetableObject"].forEach((bustime, buspole_index) => {
+      console.log(bus_index, bustime);
+    });
+  });
+}
 
 // jsonファイルをダウンロードする関数
 function downloadJson() {

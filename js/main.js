@@ -1,14 +1,12 @@
 async function succession() {
   // request_busstop_time();
-  // const bustimedata = await read_bustime();
-  // const bustime_length = bustimedata.length;
-  // console.log(bustimedata);
-  // console.log(bustime_length);
-  // const buspoledata = await read_buspole();
+  const buspole_data = await read_buspole();
+  console.log(buspole_data);
+  // const buspoledata = await call_bus_data();
   // console.log(buspoledata);
 
-  const cat = await request_dog();
-  console.log(cat);
+  // const cat = await request_dog();
+  // console.log(cat);
   // downloadJson();
 
   // envdata = require("../.env");
