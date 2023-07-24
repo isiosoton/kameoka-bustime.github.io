@@ -1,5 +1,5 @@
 // バス停情報とバス情報を呼び出す関数
-async function call_bus_data() {
+const call_bus_data = async () => {
   const buspole_data = await main_buspole();
   const busroute_data = await main_busroute(buspole_data);
   return buspole_data;
@@ -7,7 +7,7 @@ async function call_bus_data() {
   // console.log(bustime_data);
   // search_bustime(await buspole_data, await bustime_data);
   // return await bustime_data;
-}
+};
 
 // バス情報を絞り込む関数
 function search_bustime(buspole_data, bustime_data) {
