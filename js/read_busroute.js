@@ -13,7 +13,7 @@ const read_busroute = async (buspole) => {
 
 const busroute_datashaping = async (list_busroute_data) => {
   list_busroute_data.forEach(async (busroute) => {
-    console.log(busroute);
+    console.log(busroute["odpt:busstopPoleOrder"]);
   });
 };
 
