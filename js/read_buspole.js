@@ -18,6 +18,7 @@ const read_buspole = async (busspot_list, operator) => {
 const buspole_datashaping = async (list_buspole_data, use_list) => {
   let buspole_start = {};
   let buspole_goal = {};
+  let buspole_route = {};
   let buspole_start_push = {};
   let buspole_goal_push = {};
 
@@ -54,10 +55,11 @@ const buspole_datashaping = async (list_buspole_data, use_list) => {
   list_busroute.forEach(async (busroute) => {
     buspole_start_push[busroute] = buspole_start[busroute];
     buspole_goal_push[busroute] = buspole_goal[busroute];
+    buspole_route[busroute] = buspole_start[busroute].concat(buspole_goal[busroute]);
   });
 
   // バス停基準データとバス停に発着するバスの系統リストの結合
-  const dict_buspole_data = { route_list: list_busroute, route_start: buspole_start_push, route_goal: buspole_goal_push };
+  const dict_buspole_data = { route_start: buspole_start_push, route_goal: buspole_goal_push, route: buspole_route };
   return dict_buspole_data;
 };
 

@@ -5,7 +5,7 @@ const read_busroute = async (buspole) => {
   // console.log(API_Key);
 
   // バスルートリストの結合
-  const busroute_all_data = await buspole.route_list.join();
+  const busroute_all_data = Object.keys(buspole.route).join();
   let busroute_data = await fetch(`https://api.odpt.org/api/v4/odpt:BusroutePattern?owl:sameAs=${busroute_all_data}&acl:consumerKey=${API_Key}`);
   busroute_data = await busroute_data.json();
   return busroute_data;

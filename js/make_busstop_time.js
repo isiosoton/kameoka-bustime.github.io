@@ -6,6 +6,7 @@ const call_bus_data = async () => {
   const buspole_all_dict = { list_start: buspole_start_list, list_goal: buspole_goal_list, busoperator: BusOperator };
 
   const buspole_data = await main_buspole(buspole_all_dict);
+  console.log(buspole_data);
   const busroute_data = await main_busroute(buspole_data);
   return buspole_data;
   // const bustime_data = await read_bustime(buspole_data.busroute_data);
