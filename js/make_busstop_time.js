@@ -1,6 +1,11 @@
 // バス停情報とバス情報を呼び出す関数
 const call_bus_data = async () => {
-  const buspole_data = await main_buspole();
+  const BusOperator = "odpt.Operator:NishiTokyoBus";
+  const buspole_start_list = ["創価大東京富士美術館（正門）", "創価大学創大門", "創価大学栄光門"];
+  const buspole_goal_list = ["八王子駅北口", "京王八王子駅"];
+  const buspole_all_dict = { list_start: buspole_start_list, list_goal: buspole_goal_list, busoperator: BusOperator };
+
+  const buspole_data = await main_buspole(buspole_all_dict);
   const busroute_data = await main_busroute(buspole_data);
   return buspole_data;
   // const bustime_data = await read_bustime(buspole_data.busroute_data);

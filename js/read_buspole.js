@@ -14,15 +14,6 @@ const read_buspole = async (busspot_list, operator) => {
   return buspole_data;
 };
 
-// const push_dict_data = (dict_data, push_data, check_data) => {
-//   if (check_data in dict_data) {
-//     dict_data[busroute].push(push_data);
-//   } else {
-//     dict_data[busroute] = [push_data];
-//   }
-//   return dict_data;
-// };
-
 // Description: バス停情報の整形
 const buspole_datashaping = async (list_buspole_data, use_list) => {
   let buspole_start = {};
@@ -33,7 +24,7 @@ const buspole_datashaping = async (list_buspole_data, use_list) => {
   // バス停名のリストを1つずつ取得
   list_buspole_data.forEach(async (buspole) => {
     // バス停基準データの作成
-    const start_check = use_list.start_list.includes(buspole["dc:title"]);
+    const start_check = use_list.list_start.includes(buspole["dc:title"]);
     const dict_buspole = {
       title: buspole["dc:title"],
       kana: buspole["odpt:kana"],
@@ -70,16 +61,12 @@ const buspole_datashaping = async (list_buspole_data, use_list) => {
   return dict_buspole_data;
 };
 
-const main_buspole = async () => {
+const main_buspole = async (buspole_all_dict) => {
   // バス停データ一覧
-  const NishiTokyoBus = "odpt.Operator:NishiTokyoBus";
-  const buspole_start_list = ["創価大東京富士美術館（正門）", "創価大学創大門", "創価大学栄光門"];
-  const buspole_goal_list = ["八王子駅北口", "京王八王子駅"];
-  const buspole_all_list = buspole_start_list.concat(buspole_goal_list);
-  const buspole_all_dict = { start_list: buspole_start_list, goal_list: buspole_goal_list };
+  const buspole_all_list = buspole_all_dict.list_start.concat(buspole_all_dict.list_goal);
 
   // バス停情報の取得
-  let buspole_data = await read_buspole(buspole_all_list, NishiTokyoBus);
+  let buspole_data = await read_buspole(buspole_all_list, buspole_all_dict.busoperator);
   buspole_data = await buspole_datashaping(buspole_data, buspole_all_dict);
   return buspole_data;
 };
