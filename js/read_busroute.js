@@ -14,11 +14,11 @@ const read_busroute = async (buspole) => {
 const busroute_datashaping = async (list_busroute_data, buspole) => {
   // console.log(buspole);
   const dict_busall_pole = await Promise.all(
-    Object.keys(buspole.route_start).map(async (key) => {
-      return { [key]: buspole.route_start[key].concat(buspole.route_goal[key]) };
+    Object.keys(buspole.route).map(async (key) => {
+      return { [key]: buspole.route };
     })
   );
-  console.log(dict_busall_pole);
+  console.log("a:", dict_busall_pole);
   // const dict_busall_pole = Object.assign(buspole.route_start, buspole.route_goal);
   // const dict_busall_pole = buspole.route_start;
   const busgoal_pole_list = buspole.route_goal;
@@ -81,9 +81,40 @@ const busroute_datashaping = async (list_busroute_data, buspole) => {
   console.log(list_busroute);
 };
 
+const new_busroute_datashaping = async (list_busroute_data, buspole) => {
+  console.log("a", list_busroute_data);
+  console.log("b", buspole);
+  let dict_buspole = { test: ["test1", "test2"] };
+  await list_busroute_data.forEach(async (busroute) => {
+    const someas = busroute["owl:sameAs"];
+    console.log("someas:", someas);
+    console.log("busroute[owl:sameAs]:", busroute["owl:sameAs"]);
+    dict_buspole[someas] = await Promise.all(
+      busroute["odpt:busstopPoleOrder"].map(async (busstopPoleOrder) => {
+        return busstopPoleOrder["odpt:busstopPole"];
+      })
+    );
+    // dict_buspole[someas] = list_buspole;
+  });
+  console.log("dict_buspole:", dict_buspole);
+  console.log("dict_buspole.keys:", Object.keys(dict_buspole));
+  Object.keys(buspole.route).forEach(async (route_key) => {
+    buspole.route[route_key].forEach(async (buspole_one) => {
+      // console.log("buspole_one", buspole_one);
+      // console.log(dict_buspole[route_key][dict_buspole[route_key].indexOf(buspole_one.busstopPoleSome)]);
+      // dict_buspole[route_key][dict_buspole[route_key]. indexOf(buspole_one.busstopPoleSome)]["pole"] = buspole;
+    });
+    console.log("route_key:", route_key);
+    console.log("dict_buspole[route_key]:", dict_buspole[route_key]);
+    console.log("dict_buspole[kyukoubus]:", dict_buspole["odpt.BusroutePattern:NishiTokyoBus.Kyuukou.102308.3"]);
+    console.log("test:", dict_buspole["test"]);
+  });
+  console.log("dict_buspole", dict_buspole);
+};
+
 const main_busroute = async (buspole) => {
   const busroute_data = await read_busroute(buspole);
-  busroute_datashaping(busroute_data, buspole);
+  new_busroute_datashaping(busroute_data, buspole);
   //   console.log(buspole);
   return 0;
 };
