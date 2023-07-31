@@ -1,7 +1,7 @@
 const urltop_dogapi = `https://dog.ceo/api`;
 let dict_breeds = {};
 let input_int = 0;
-let input_breed = null;
+let input_breed = "";
 
 // APIからリストを取得する関数（async/awaitバージョン）
 const make_start = async () => {
@@ -14,8 +14,7 @@ const make_start = async () => {
 const make_dogdata = async () => {
   let url = null;
   let list_breeds = null;
-  console.log(input_breed, input_int);
-  url = input_breed == null ? `${urltop_dogapi}/breeds/image/random` : `${urltop_dogapi}/breed/${input_breed}/images/random`;
+  url = input_breed == "" ? `${urltop_dogapi}/breeds/image/random` : `${urltop_dogapi}/breed/${input_breed}/images/random`;
   url = input_int === 0 ? url : `${url}/${input_int}`;
   list_breeds = await read_webapi(url);
   list_breeds = typeof list_breeds === "string" || list_breeds instanceof String ? [list_breeds] : list_breeds; // 文字列の場合は配列に変換
@@ -29,7 +28,6 @@ const check_dubble = (breed, input) => {
 };
 
 const check_input = async (input) => {
-  console.log(typeof input);
   if (isNaN(Number(input))) {
     alert(`${input}は入力できません。\n半角数字で入力してください。`);
     document.getElementById("sheets").value = "";

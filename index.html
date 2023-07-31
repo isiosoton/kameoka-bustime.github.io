@@ -6,33 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="auther" content="Kameoka Kentaro" />
     <meta name="keywords" content="最終課題" />
+    <link rel="stylesheet" href="./css/main.css" />
     <title>時刻取得</title>
   </head>
   <body>
     <header>
       <h1 id="top">コンピュータリテラシーⅡ</h1>
-      <nav id="menu">
-        <ul>
-          <li><a href="#">ホーム</a></li>
-          <li><a href="#">タグリファレンス</a></li>
-          <li><a href="#">問い合わせ</a></li>
-        </ul>
-      </nav>
     </header>
     <main>
-      <h2>犬の画像取得</h2>
+      <div id="div_title">
+        <h2 id="title">犬の画像取得</h2>
+      </div>
       <div id="div_breeds">
-        <select name="breeds" id="breeds"></select>
+        <label for="breeds" class="label-breeds">
+          <select name="breeds" id="breeds"></select>
+        </label>
       </div>
       <div id="div_sheets">
-        <label for="sheets">枚数：</label>
-        <input id="sheets" type="number" min="0" />
+        <label>
+          <span class="span-sheets">枚数</span>
+          <input id="sheets" type="number" min="0" />
+        </label>
       </div>
-      <div>
-        <button type="button" onclick="succession()">更新</button>
+      <div id="div_succession">
+        <button id="succession" type="button" onclick="succession()">更新</button>
       </div>
-      <div id="dog_image"></div>
+      <div id="div_image"></div>
     </main>
+    <footer class="footer-001">
+      <a href="#">TOP </a>
+      <p class="footer-001__copyright">@ 2023 Computer Literacy All rights reserved.</p>
+    </footer>
+
     <script type="text/javascript" src="./js/read_webapi.js"></script>
     <script type="text/javascript" src="./js/make_dogdata.js"></script>
     <script type="text/javascript" src="./js/change_html.js"></script>

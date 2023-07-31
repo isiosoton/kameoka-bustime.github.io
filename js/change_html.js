@@ -2,6 +2,12 @@
 const generateOption = async (data) => {
   const selectBox = document.getElementById("breeds");
 
+  const option = document.createElement("option");
+  option.value = "";
+  option.textContent = "";
+  option.selected = true;
+  selectBox.appendChild(option);
+
   // リストをループしてオプションを作成
   data.forEach(async (breed) => {
     const option = document.createElement("option");
@@ -13,7 +19,7 @@ const generateOption = async (data) => {
 
 // HTML側に画像を表示する関数
 const showImage = async (urls) => {
-  const dog_image = document.getElementById("dog_image");
+  const dog_image = document.getElementById("div_image");
 
   // 画像を表示する前に、前回の画像を削除
   while (dog_image.firstChild) {

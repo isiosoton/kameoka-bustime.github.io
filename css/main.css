@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* selectタグ部分 */
+.label-breeds {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.label-breeds::after {
+  position: absolute;
+  right: 15px;
+  width: 10px;
+  height: 7px;
+  background-color: #535353;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.label-breeds select {
+  appearance: none;
+  min-width: 230px;
+  height: 2.8em;
+  padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
+  border: none;
+  border-bottom: 2px solid #40a798;
+  background-color: #fff;
+  color: #333333;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.label-breeds select:focus {
+  outline: none;
+}
+
+/* 枚数入力部分 */
+.span-sheets,
+#sheets {
+  color: #333;
+}
+
+.span-sheets {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+#sheets {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #969da3;
+  border-radius: 3px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+#sheets::placeholder {
+  color: #999;
+}
+
+/* 更新ボタン部分 */
+#succession {
+  align-items: center;
+  width: 250px;
+  margin: 0 auto;
+  padding: 0.9em 2em;
+  border: none;
+  border-bottom: solid 5px #107768;
+  border-radius: 25px;
+  background-color: #40a798;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  transition: 0.5s ease;
+}
+
+#succession:hover {
+  transform: translateY(3px);
+  border-bottom-width: 2px;
+}
+
+/* フッター */
+.footer-001 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 10px 10px;
+  background-color: #40a798;
+}
+
+.footer-001__copyright {
+  margin: 0;
+  color: #ffffffb3;
+  font-weight: 200;
+  font-size: 0.8em;
+}
