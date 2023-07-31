@@ -21,21 +21,23 @@
     </header>
     <main>
       <h2>犬の画像取得</h2>
+
+      <div id="div_breeds"></div>
+      <div id="div_subbreeds">
+        <select name="subbreeds" id="subbreeds"></select>
+      </div>
+      <div id="div_sheets">
+        <label for="sheets">枚数：</label>
+        <input id="sheets" type="text" pattern="^[0-9]+$" />
+      </div>
       <div>
-        <!-- <h3>世界のこんにちは</h3> -->
         <button type="button" onclick="succession()">更新</button>
       </div>
-      <div id="div_breeds"></div>
-      <!-- <select name="" id="breeds">
-        <option value=""></option>
-      </select> -->
-      <div id="div_subbreeds"></div>
       <div id="dog_image"></div>
     </main>
     <script type="text/javascript" src="./js/read_webapi.js"></script>
     <script type="text/javascript" src="./js/make_dogdata.js"></script>
     <script type="text/javascript" src="./js/change_html.js"></script>
-    <script type="text/javascript" src="./js/check_tag.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>

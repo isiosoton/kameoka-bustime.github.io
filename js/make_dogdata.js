@@ -8,23 +8,20 @@ const make_start = async () => {
   const breeds = Object.keys(dict_breeds); // リストを取得
   // populateSelectBox(breeds, "breeds"); // 取得したデータを元にSelectボックスを作成
   await generateSelectBox(breeds, "div_breeds");
+  await generateOption(breeds);
+};
+
+const check_input = async (input) => {
+  console.log("check_input:", input);
 };
 
 const make_dogdata = async (url) => {
-  const list_breeds = await read_webapi(url);
+  let list_breeds = await read_webapi(url);
+  list_breeds = typeof list_breeds === "string" || list_breeds instanceof String ? [list_breeds] : list_breeds; // 文字列の場合は配列に変換
   showImage(list_breeds); // 取得したデータを元に画像を表示
 };
 
 const check_subbreeds = (breed) => {
-  if (!(breed in dict_breeds)) {
-    if (breed === "") {
-      const url = `${urltop_dogapi}/breeds/image/random`;
-      make_dogdata(url);
-    } else {
-      console.log("subbreed :", breed);
-    }
-  } else {
-    const url = `${urltop_dogapi}/breed/${breed}/images/random`;
-    make_dogdata(url);
-  }
+  const url = breed === "" ? `${urltop_dogapi}/breeds/image/random` : `${urltop_dogapi}/breed/${breed}/images/random`;
+  make_dogdata(url);
 };

@@ -25,7 +25,6 @@ const generateSelectBox = async (data, idname) => {
 
   // イベントリスナーを外部で定義しておく
   const previousListener = async () => {
-    console.log("value:", selectBox.value);
     check_subbreeds(selectBox.value);
   };
 
@@ -33,8 +32,20 @@ const generateSelectBox = async (data, idname) => {
   container.addEventListener("change", previousListener);
 };
 
+const generateOption = async (data) => {
+  const selectBox = document.getElementById("subbreeds");
+
+  // リストをループしてオプションを作成
+  data.forEach(async (breed) => {
+    const option = document.createElement("option");
+    option.value = breed;
+    option.textContent = breed;
+    selectBox.appendChild(option);
+  });
+};
+
 // HTML側に画像を表示する関数
-const showImage = async (url) => {
+const showImage = async (urls) => {
   const dog_image = document.getElementById("dog_image");
 
   // 画像を表示する前に、前回の画像を削除
@@ -42,7 +53,10 @@ const showImage = async (url) => {
     dog_image.removeChild(dog_image.firstChild);
   }
 
-  const image = document.createElement("img");
-  image.src = url;
-  dog_image.appendChild(image);
+  // 画像を表示
+  urls.forEach((url) => {
+    const image = document.createElement("img");
+    image.src = url;
+    dog_image.appendChild(image);
+  });
 };
