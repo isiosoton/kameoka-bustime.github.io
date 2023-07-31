@@ -14,6 +14,7 @@ document.getElementById("sheets").addEventListener("change", (e) => {
 
 // 更新ボタンが押された際に実行する処理
 const succession = async () => {
-  data = await make_dogdata();
-  console.log("main:", data);
+  const input_int = document.getElementById("sheets").value;
+  const input_breed = document.getElementById("breeds").value;
+  check_dubble(input_breed, input_int);
 };
