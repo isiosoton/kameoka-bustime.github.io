@@ -7,31 +7,6 @@ const removeElementAll = async (idname) => {
   return container;
 };
 
-const generateSelectBox = async (data, idname) => {
-  const container = await removeElementAll(idname);
-
-  const selectBox = document.createElement("select");
-  selectBox.id = idname.replace("div_", "");
-
-  // リストをループしてオプションを作成
-  data.forEach(async (breed) => {
-    const option = document.createElement("option");
-    option.value = breed;
-    option.textContent = breed;
-    selectBox.appendChild(option);
-  });
-
-  container.appendChild(selectBox);
-
-  // イベントリスナーを外部で定義しておく
-  const previousListener = async () => {
-    check_subbreeds(selectBox.value);
-  };
-
-  container.removeEventListener("change", previousListener);
-  container.addEventListener("change", previousListener);
-};
-
 const generateOption = async (data) => {
   const selectBox = document.getElementById("subbreeds");
 

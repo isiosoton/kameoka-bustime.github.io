@@ -1,6 +1,3 @@
-// SelectボックスIDリスト一覧
-const id_list = ["breeds"];
-
 // HTMLが読み込まれた際に実行する処理
 document.addEventListener("DOMContentLoaded", () => {
   make_start(); // APIからリストを取得し、Selectボックスを作成

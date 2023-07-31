@@ -6,8 +6,6 @@ const make_start = async () => {
   const dict_breeds_url = `${urltop_dogapi}/breeds/list/all`;
   dict_breeds = await read_webapi(dict_breeds_url);
   const breeds = Object.keys(dict_breeds); // リストを取得
-  // populateSelectBox(breeds, "breeds"); // 取得したデータを元にSelectボックスを作成
-  await generateSelectBox(breeds, "div_breeds");
   await generateOption(breeds);
 };
 
