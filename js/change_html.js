@@ -4,8 +4,7 @@ const generateOption = async (data) => {
 
   const option = document.createElement("option");
   option.value = "";
-  option.textContent = "";
-  option.selected = true;
+  option.textContent = "all";
   selectBox.appendChild(option);
 
   // リストをループしてオプションを作成

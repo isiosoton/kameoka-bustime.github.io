@@ -11,30 +11,32 @@
   </head>
   <body>
     <header>
-      <h1 id="top">コンピュータリテラシーⅡ</h1>
+      <div id="div_title">
+        <h2 id="top">犬の画像検索</h2>
+      </div>
     </header>
     <main>
-      <div id="div_title">
-        <h2 id="title">犬の画像取得</h2>
-      </div>
-      <div id="div_breeds">
-        <label for="breeds" class="label-breeds">
-          <select name="breeds" id="breeds"></select>
-        </label>
-      </div>
-      <div id="div_sheets">
-        <label>
-          <span class="span-sheets">枚数</span>
-          <input id="sheets" type="number" min="0" />
-        </label>
-      </div>
-      <div id="div_succession">
-        <button id="succession" type="button" onclick="succession()">更新</button>
+      <div id="div_search">
+        <div id="div_breeds">
+          <label for="breeds" class="label-breeds">
+            <select name="breeds" id="breeds">
+              <option value="" disabled selected style="display: none">犬種</option>
+            </select>
+          </label>
+        </div>
+        <div id="div_sheets">
+          <label>
+            <input id="sheets" type="number" min="0" placeholder="枚数" />
+          </label>
+        </div>
+        <div id="div_succession">
+          <button id="succession" type="button" onclick="succession()">更新</button>
+        </div>
       </div>
       <div id="div_image"></div>
     </main>
     <footer class="footer-001">
-      <a href="#">TOP </a>
+      <a href="#">TOPへ戻る </a>
       <p class="footer-001__copyright">@ 2023 Computer Literacy All rights reserved.</p>
     </footer>
 

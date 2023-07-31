@@ -1,5 +1,62 @@
 @charset "utf-8";
 
+/* 全体のスタイル */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+main {
+  padding: 24px;
+}
+
+div {
+  box-sizing: border-box;
+  margin: 8px;
+}
+
+img {
+  display: block;
+  @media screen and (max-width: 760px) {
+    width: 100%;
+    height: auto;
+  }
+  width: auto;
+  height: 300px;
+  margin: 8px;
+}
+
+/* ヘッダー部分 */
+#top {
+  margin: 24px;
+  color: #333333;
+}
+
+#top:first-letter {
+  color: #40a798;
+  font-size: 2em;
+}
+
+/* 検索部分 */
+#div_search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.9em 2em;
+  border: solid 5px #40a798;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: 0.5s ease;
+}
+
 /* selectタグ部分 */
 .label-breeds {
   display: inline-flex;
@@ -25,7 +82,7 @@
   padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
   border: none;
   border-bottom: 2px solid #40a798;
-  background-color: #fff;
+  background-color: #f0f0f0;
   color: #333333;
   font-size: 1em;
   cursor: pointer;
@@ -36,22 +93,12 @@
 }
 
 /* 枚数入力部分 */
-.span-sheets,
 #sheets {
-  color: #333;
-}
-
-.span-sheets {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 0.9em;
-}
-
-#sheets {
-  width: 100%;
+  width: 80%;
   padding: 8px 10px;
-  border: 1px solid #969da3;
+  border: 1px solid #40a798;
   border-radius: 3px;
+  color: #333;
   font-size: 1em;
   line-height: 1.5;
 }
@@ -70,7 +117,7 @@
   border-bottom: solid 5px #107768;
   border-radius: 25px;
   background-color: #40a798;
-  color: #fff;
+  color: #f0f0f0;
   font-weight: 600;
   font-size: 1em;
   transition: 0.5s ease;
@@ -79,6 +126,21 @@
 #succession:hover {
   transform: translateY(3px);
   border-bottom-width: 2px;
+}
+
+/* 画像部分 */
+#div_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.9em 2em;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: 0.5s ease;
 }
 
 /* フッター */
