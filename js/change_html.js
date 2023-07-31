@@ -1,12 +1,4 @@
-// divタグの中の要素を全て削除する関数
-const removeElementAll = async (idname) => {
-  const container = document.getElementById(idname);
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
-  }
-  return container;
-};
-
+// Selectタグの値を作成する関数
 const generateOption = async (data) => {
   const selectBox = document.getElementById("breeds");
 
