@@ -10,13 +10,27 @@
 //   });
 // };
 
-// divタグの中にSelectボックスを動的に作成する関数
-const generateSelectBox = async (data, idname) => {
+// divタグの中の要素を全て削除する関数
+const removeElementAll = async (idname) => {
   const container = document.getElementById(idname);
-
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+  return container;
+};
+
+// divタグの中にSelectボックスを動的に作成する関数
+// const generateSelectBox = async (data, idname) => {
+// console.log("data:", data);
+// const container = document.getElementById(idname);
+// await removeElementAll(idname);
+
+// while (container.firstChild) {
+//   container.removeChild(container.firstChild);
+// }
+
+const generateSelectBox = async (data, idname) => {
+  const container = await removeElementAll(idname);
 
   const selectBox = document.createElement("select");
   selectBox.id = idname.replace("div_", "");
@@ -31,9 +45,14 @@ const generateSelectBox = async (data, idname) => {
 
   container.appendChild(selectBox);
 
-  container.addEventListener("change", async () => {
+  // イベントリスナーを外部で定義しておく
+  const previousListener = async () => {
+    console.log("value:", selectBox.value);
     check_subbreeds(selectBox.value);
-  });
+  };
+
+  container.removeEventListener("change", previousListener);
+  container.addEventListener("change", previousListener);
 };
 
 // HTML側に画像を表示する関数
