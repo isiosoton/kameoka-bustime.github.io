@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   make_start(); // APIからリストを取得し、Selectボックスを作成
 });
 
-document.getElementById("subbreeds").addEventListener("change", (e) => {
-  check_subbreeds(e.target.value); // 入力された値を元に画像を表示
+document.getElementById("breeds").addEventListener("change", (e) => {
+  check_breeds(e.target.value); // 入力された値を元に画像を表示
 });
 
 // inputタグが入力された際に実行する処理

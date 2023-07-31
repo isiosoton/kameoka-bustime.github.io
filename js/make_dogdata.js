@@ -19,7 +19,7 @@ const make_dogdata = async (url) => {
   showImage(list_breeds); // 取得したデータを元に画像を表示
 };
 
-const check_subbreeds = (breed) => {
+const check_breeds = (breed) => {
   const url = breed === "" ? `${urltop_dogapi}/breeds/image/random` : `${urltop_dogapi}/breed/${breed}/images/random`;
   make_dogdata(url);
 };

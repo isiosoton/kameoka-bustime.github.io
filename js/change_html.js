@@ -8,7 +8,7 @@ const removeElementAll = async (idname) => {
 };
 
 const generateOption = async (data) => {
-  const selectBox = document.getElementById("subbreeds");
+  const selectBox = document.getElementById("breeds");
 
   // リストをループしてオプションを作成
   data.forEach(async (breed) => {
