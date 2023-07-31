@@ -16,9 +16,6 @@ const make_dogdata = async (url) => {
 };
 
 const check_subbreeds = (breed) => {
-  // const container = await removeElementAll(idname);
-  // await removeElementAll("div_subbreeds");
-  // console.log("breed:", breed);
   if (!(breed in dict_breeds)) {
     if (breed === "") {
       const url = `${urltop_dogapi}/breeds/image/random`;
@@ -30,13 +27,4 @@ const check_subbreeds = (breed) => {
     const url = `${urltop_dogapi}/breed/${breed}/images/random`;
     make_dogdata(url);
   }
-
-  // } else if (dict_breeds[breed].length === 0) {
-  //   removeElementAll("div_subbreeds");
-  //   const url = `${urltop_dogapi}/breed/${breed}/images/random`;
-  //   make_dogdata(url);
-  // } else {
-  //   console.log("subbreeds:", dict_breeds[breed]);
-  //   generateSelectBox(dict_breeds[breed], "div_subbreeds");
-  // }
 };

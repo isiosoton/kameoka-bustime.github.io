@@ -6,14 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   make_start(); // APIからリストを取得し、Selectボックスを作成
 });
 
-// Selectボックスの値が変更された際に実行する処理
-// id_list.forEach(async (id) => {
-//   const elementid_data = document.getElementById(id);
-//   elementid_data.addEventListener("change", async () => {
-//     check_subbreeds(elementid_data.value);
-//   });
-// });
-
 const succession = async () => {
   data = await make_dogdata();
   console.log("main:", data);

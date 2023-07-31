@@ -1,15 +1,3 @@
-// Selectボックスを動的に作成する関数
-// const populateSelectBox = async (data, idname) => {
-//   const selectBox = document.getElementById(idname);
-//   // リストをループしてオプションを作成
-//   data.forEach(async (breed) => {
-//     const option = document.createElement("option");
-//     option.value = breed;
-//     option.textContent = breed;
-//     selectBox.appendChild(option);
-//   });
-// };
-
 // divタグの中の要素を全て削除する関数
 const removeElementAll = async (idname) => {
   const container = document.getElementById(idname);
@@ -18,16 +6,6 @@ const removeElementAll = async (idname) => {
   }
   return container;
 };
-
-// divタグの中にSelectボックスを動的に作成する関数
-// const generateSelectBox = async (data, idname) => {
-// console.log("data:", data);
-// const container = document.getElementById(idname);
-// await removeElementAll(idname);
-
-// while (container.firstChild) {
-//   container.removeChild(container.firstChild);
-// }
 
 const generateSelectBox = async (data, idname) => {
   const container = await removeElementAll(idname);
